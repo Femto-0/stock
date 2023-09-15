@@ -1,0 +1,12 @@
+
+o	java:S1008"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œçãşÿÿÿÿ8¤Àé§©1
+j	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Î¸”8¥Àé§©1
+b
+java:S1854O"@Remove this useless assignment to local variable "stocksInHand".(Ìºó‚ÿÿÿÿÿ8¦Àé§©1
+d
+java:S1854N"BRemove this useless assignment to local variable "currentBalance".(àşÛûÿÿÿÿ8¦Àé§©1
+j	java:S100d"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢«8§Àé§©1
+b
+java:S1854o"@Remove this useless assignment to local variable "stocksInHand".(¯„’ûÿÿÿÿ8¨Àé§©1
+d
+java:S1854n"BRemove this useless assignment to local variable "currentBalance".(ƒ¤ğÌùÿÿÿÿ8¨Àé§©1

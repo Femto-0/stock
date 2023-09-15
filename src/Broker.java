@@ -1,61 +1,94 @@
 import java.util.Scanner;
 
 public class Broker {
-    /*
-    main method
-     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter stock symbol: ");
-        String symbol = scanner.nextLine(); //take input from the user for Symbol of the Stock
-
-        System.out.print("Enter initial volume: ");
-        int initialVolume = scanner.nextInt(); //Input from the user for initial Volume of the stock
-
-        System.out.print("Enter initial price: $");
-        double initialPrice = scanner.nextDouble(); //Input from the user for initial price of the stock
-
-        Stock stock = new Stock(symbol, initialVolume, initialPrice);
-
-        System.out.println("\nCurrent State:");
-        stock.currentState();
+        Stock stock = null;
+        Customer customer = null;
 
         while (true) {
             System.out.println("\nOptions:");
-            System.out.println("1. Buy");
-            System.out.println("2. Sell");
-            System.out.println("3. End");
-            System.out.print("Select an option (1/2/3): ");
+            System.out.println("1. Create Stock");
+            System.out.println("2. Create Customer");
+            System.out.println("3. Display Status");
+            System.out.println("4. Buy (Customer)");
+            System.out.println("5. Sell (Customer)");
+            System.out.println("6. End");
+            System.out.print("Select an option (1/2/3/4/5/6): ");
 
             int option = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
-/*
-if else statement to keep the user involved in buying and selling of the stock until they choose to end voluntarily
- */
-            if (option == 1) { //"1" --> user wants to buy
-                System.out.print("Enter the number of stocks to buy: ");
-                int number = scanner.nextInt();
-                System.out.print("Enter the new price: $");
-                double newPrice = scanner.nextDouble();
-                stock.buy(number, newPrice);
-            } else if (option == 2) { //--> user wants to sell
-                System.out.print("Enter the number of stocks to sell: ");
-                int number = scanner.nextInt();
-                System.out.print("Enter the new price: $");
-                double newPrice = scanner.nextDouble();
-                stock.sell(number, newPrice);
-            } else if (option == 3) { // --> user wants to stop trading
-                stock.currentState(); //display the current state of the stock after the user chooses to end.
-                break;
-            } else {
-                System.out.println("Invalid option. Please select 1, 2, or 3."); //in case the user inputs anything other than 1,2 or 3
+            switch (option) {
+                case 1:
+                    System.out.print("Enter stock symbol: ");
+                    String symbol = scanner.nextLine();
+                    System.out.print("Enter initial volume: ");
+                    double initialVolume = scanner.nextDouble();
+                    System.out.print("Enter initial price: $");
+                    double initialPrice = scanner.nextDouble();
+                    scanner.nextLine(); // Consume newline
+                    stock = new Stock(symbol, initialVolume, initialPrice);
+                    break;
+
+                case 2:
+                    System.out.print("Enter customer name: ");
+                    String customerName = scanner.nextLine();
+                    System.out.print("Enter initial balance: $");
+                    double balance = scanner.nextDouble();
+                    scanner.nextLine(); // Consume newline
+                    customer = new Customer(customerName, balance);
+                    break;
+
+                case 3:
+                    if (stock != null) {
+                        stock.currentState();
+                    }
+                    if (customer != null) {
+                        customer.currentState();
+                    }
+                    break;
+
+                case 4:
+                    if (customer != null && stock != null) {
+                        System.out.print("Enter number of stocks to buy: ");
+                        double buyNumber = scanner.nextDouble();
+                        System.out.print("Enter new price: $");
+                        double buyPrice = scanner.nextDouble();
+                        scanner.nextLine(); // Consume newline
+                        customer.buy(stock, buyNumber, buyPrice);
+                        stock.currentState();
+                        customer.currentState();
+                    } else {
+                        System.out.println("Stock or customer not initialized.");
+                    }
+                    break;
+
+                case 5:
+                    if (customer != null && stock != null) {
+                        System.out.print("Enter number of stocks to sell: ");
+                        double sellNumber = scanner.nextDouble();
+                        System.out.print("Enter new price: $");
+                        double sellPrice = scanner.nextDouble();
+                        scanner.nextLine(); // Consume newline
+                        customer.sell(stock, sellNumber, sellPrice);
+                        stock.currentState();
+                        customer.currentState();
+                    } else {
+                        System.out.println("Stock or customer not initialized.");
+                    }
+                    break;
+
+                case 6:
+                    System.out.println("Exiting...");
+                    scanner.close();
+                    System.exit(0);
+                    break;
+
+                default:
+                    System.out.println("Invalid option. Please select a valid option.");
+                    break;
             }
-
-            System.out.println("\nUpdated State:"); //prints the updated Stocks info after each Purchase or sales of stocks
-            stock.currentState();
         }
-
-        scanner.close();
     }
 }
