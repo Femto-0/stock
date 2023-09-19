@@ -1,14 +1,55 @@
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 class Customer {
     private String name;
     private double currentBalance;
     private double stocksInHand;
 
+
+    /*
+    getter and setter
+     */
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getCurrentBalance() {
+        return currentBalance;
+    }
+
+    public void setCurrentBalance(double currentBalance) {
+        this.currentBalance = currentBalance;
+    }
+
+    public double getStocksInHand() {
+        return stocksInHand;
+    }
+
+    public void setStocksInHand(double stocksInHand) {
+        this.stocksInHand = stocksInHand;
+    }
+
+    public Map<String, Stock> getStocks() {
+        return stocks;
+    }
+
+    public void setStocks(Map<String, Stock> stocks) {
+        this.stocks = stocks;
+    }
+
+    private Map<String, Stock> stocks;
+
     public Customer(String name, double currentBalance) {
         this.name = name;
         this.currentBalance = currentBalance;
-        this.stocksInHand = 0;
+        this.stocks = new HashMap<>();
+
     }
     /*
     creating a isValidTransaction so that we can validate buying and selling
@@ -62,12 +103,22 @@ class Customer {
         }
     }
 
-    public void currentState() {
-        DecimalFormat df = new DecimalFormat("$ #0.00");
-        System.out.println("|Customer: " + name);
-        System.out.println("|Balance: " + df.format(currentBalance));
-        System.out.println("|Stocks In Hand: " + stocksInHand);
-        System.out.println("----------------------------------------");
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Name: ").append(name).append(", Balance: ").append(currentBalance).append("\n");
+        sb.append("Stocks:\n");
+        for (Stock stock : stocks.values()) {
+            sb.append(stock).append("\n");
+        }
+        return sb.toString();
     }
 
+    public void addStock(Stock stock, double stockVolume) {
+        if (stocks.containsKey(stock.getSymbol())) {
+            Stock existingStock = stocks.get(stock.getSymbol());
+            existingStock.setVolume(existingStock.getVolume() + stockVolume);
+        } else {
+            stocks.put(stock.getSymbol(), new Stock(stock.getSymbol(), stock.getPrice(), stockVolume));
+        }
+    }
 }

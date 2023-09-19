@@ -64,38 +64,8 @@ method for when the user choses to buy.
 /*
 method to print the current Volume, Price and Value of the share.
  */
-    public void currentState() {
-        /*
-        in case we need to update Customer's info thorugh this method
-         */
-//        String name="";
-//        double balance=0;
-//        CustomerClass customerClass= new CustomerClass(name, balance); //initializing the customer class to update users info after every successful purchase/ sales
-//        name=customerClass.getCustomerName(); //Name of customer
-//        balance=customerClass.getCurrentBalance();  //current balance of customer
-//        double currentStocks= customerClass.getStocksInHand(); //current stocks of customer
-//
-//        System.out.println("Name of Customer: "+ name);
-//        System.out.println("Current Balance of Customer: "+balance);
-//        System.out.println("Current Stocs in hold of Customer: "+ currentStocks);
-        double value = volume * price;
-        System.out.println("---------------------");
-        System.out.println("|Symbol: " + symbol);
-        System.out.println("|Volume: " + volume);
-        System.out.println("|Price: $" + price);
-        System.out.println("|Value: $" + value);
-    }
-    public void createNewStock(){
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter stock symbol: ");
-         symbol = scanner.nextLine(); //take input from the user for Symbol of the Stock
-
-        System.out.print("Enter initial volume: ");
-         volume = scanner.nextInt(); //Input from the user for initial Volume of the stock
-
-        System.out.print("Enter initial price: $");
-        price = scanner.nextDouble(); //Input from the user for initial price of the stock
+    public String toString() {
+        return "Stock Name: " + symbol + ", Price: " + price + ", Volume: " + volume;
     }
 
 }
