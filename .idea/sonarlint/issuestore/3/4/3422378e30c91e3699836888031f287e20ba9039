@@ -1,13 +1,19 @@
 
-D
-java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8Öşõ§©1
-]
-java:S1854";Remove this useless assignment to local variable "balance".(¦Îëßşÿÿÿÿ8ÛÜÄ§©1
-U
-java:S1854"8Remove this useless assignment to local variable "name".(¼†Ö†8ÛÜÄ§©1
-]
-java:S1854"ARemove this useless assignment to local variable "initialVolume".(÷Ç‡8ÛÜÄ§©1
-\
-java:S1854"@Remove this useless assignment to local variable "initialPrice".(³ˆØ}8ÛÜÄ§©1
-W
-java:S1854":Remove this useless assignment to local variable "symbol".(‡ô‰8ÛÜÄ§©1
+n
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(÷¹Šûúÿÿÿÿ8ÙêáÚª1
+n
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(„‹œÿÿÿÿÿ8ÙêáÚª1
+E
+java:S2189ƒ""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8ÁäèÚª1
+v
+java:S3008"TRename this field "item_file" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä§ñ÷øÿÿÿÿ8ÙêáÚª1
+u
+java:S3008	"XRename this field "customer_file" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è Ì–8ÙêáÚª1
+‰
+java:S1130]"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¢±–Ó8Ë¾åÛª1
+o
+java:S3776|"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(œû¿Ø8ÎğçÚª1
+L
+java:S1481"*Remove this unused "stock" local variable.(Ñ¬ˆ„ıÿÿÿÿ8é®æÚª1
+P
+java:S1481€"-Remove this unused "customer" local variable.(Ç§è¸ûÿÿÿÿ8âêáÚª1
